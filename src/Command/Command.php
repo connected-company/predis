@@ -92,7 +92,7 @@ abstract class Command implements CommandInterface
      */
     public static function normalizeArguments(array $arguments)
     {
-        if (count($arguments) === 1 && is_array($arguments[0])) {
+        if (count($arguments) === 1 && is_array($arguments[0] ?? null)) {
             return $arguments[0];
         }
 
@@ -108,7 +108,7 @@ abstract class Command implements CommandInterface
      */
     public static function normalizeVariadic(array $arguments)
     {
-        if (count($arguments) === 2 && is_array($arguments[1])) {
+        if (count($arguments) === 2 && is_array($arguments[1] ?? null)) {
             return array_merge(array($arguments[0]), $arguments[1]);
         }
 
